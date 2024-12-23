@@ -1,0 +1,147 @@
+Here are detailed answers to all the listed Git advanced questions:
+
+---
+
+### 1. **What is Cherry-picking?**
+   - Cherry-picking in Git allows you to apply specific commits from one branch into another branch without merging the entire branch.
+   - Command:
+     ```bash
+     git cherry-pick <commit-hash>
+     ```
+   - Example: If a bug fix was committed in a feature branch and you want it in the main branch, cherry-picking can bring over that specific commit.
+
+---
+
+### 2. **What is Squash Merge?**
+   - Squash merge combines all the commits in a branch into a single commit before merging it into the target branch.
+   - Benefits: Keeps the commit history clean by avoiding clutter from small intermediate commits.
+   - Example: 
+     ```bash
+     git merge --squash <branch>
+     git commit -m "Merged branch with squash"
+     ```
+
+---
+
+### 3. **What is the difference between Cherry-picking and Merge?**
+   - **Cherry-picking** selects specific commits to apply to a branch, while **merge** integrates the entirety of one branch into another.
+   - Cherry-picking does not establish a direct relationship between branches, but merging does.
+
+---
+
+### 4. **What is the difference between Rebase and Merge?**
+   - **Rebase** rewrites the commit history by moving commits from one branch on top of another branch, making the history linear.
+     ```bash
+     git rebase <branch>
+     ```
+   - **Merge** combines two branches while retaining their individual histories.
+     ```bash
+     git merge <branch>
+     ```
+   - Use rebase for a cleaner history and merge for preserving the history of both branches.
+
+---
+
+### 5. **How do you restore a commit?**
+   - Use `git revert` to create a new commit that undoes the changes made by a previous commit:
+     ```bash
+     git revert <commit-hash>
+     ```
+   - To restore a commit completely (hard reset):
+     ```bash
+     git reset --hard <commit-hash>
+     ```
+   - Be cautious when using `reset` as it alters the history.
+
+---
+
+### 6. **What is the difference between revert and reset?**
+   - **Revert**: Undoes changes by creating a new commit, preserving the history.
+   - **Reset**: Moves the branch pointer to a previous state, altering the history (can be destructive).
+     - Soft reset:
+       ```bash
+       git reset --soft <commit>
+       ```
+       Keeps changes staged.
+     - Hard reset:
+       ```bash
+       git reset --hard <commit>
+       ```
+       Removes all changes.
+
+---
+
+### 7. **What is the difference between fork and clone?**
+   - **Fork**: Creates a copy of a repository in your GitHub account, allowing independent changes and contributions.
+   - **Clone**: Copies a repository to your local machine for development.
+     ```bash
+     git clone <repository-url>
+     ```
+
+---
+
+### 8. **What is the difference between git stash and git add?**
+   - **Git stash** temporarily saves uncommitted changes without adding them to the staging area:
+     ```bash
+     git stash
+     git stash pop
+     ```
+   - **Git add** stages changes, preparing them for a commit:
+     ```bash
+     git add <file>
+     ```
+
+---
+
+### 9. **How do you keep your forked repo updated with upstream?**
+   - Add the upstream repository:
+     ```bash
+     git remote add upstream <upstream-repo-url>
+     ```
+   - Fetch changes from upstream:
+     ```bash
+     git fetch upstream
+     ```
+   - Merge upstream changes:
+     ```bash
+     git merge upstream/main
+     ```
+   - Or rebase:
+     ```bash
+     git rebase upstream/main
+     ```
+
+---
+
+### 10. **What are the purposes of GitHub issues?**
+   - GitHub issues are used for:
+     - Tracking bugs, enhancements, and tasks.
+     - Collaborating with team members via comments and tags.
+     - Assigning tasks using labels, milestones, and assignees.
+
+---
+
+### 11. **What is a Webhook? How is it different than API?**
+   - A **Webhook** is an automated mechanism for notifying systems about events in real-time (e.g., a new commit in a repository).
+     - Example: Triggering a Jenkins build on a GitHub push.
+   - An **API** is a request-response mechanism where a client explicitly requests information or actions.
+     - Key difference: Webhooks are event-driven; APIs are client-driven.
+
+---
+
+### 12. **How do DevOps tools get notified of repository changes?**
+   - Using **webhooks** to trigger actions such as CI/CD pipelines.
+   - Example: Configuring a webhook in GitHub to notify Jenkins on a code push.
+
+---
+
+### 13. **How can you integrate GitHub with a Jenkins job?**
+   - Steps:
+     1. Install the **GitHub plugin** in Jenkins.
+     2. Add a GitHub repository URL in the Jenkins job configuration under "Source Code Management."
+     3. Set up a **GitHub webhook** to notify Jenkins of changes.
+     4. Add build steps in Jenkins to run scripts, tests, or deployments.
+
+---
+
+Let me know if you'd like detailed examples or further clarification on any of these!
