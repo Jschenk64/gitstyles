@@ -1,4 +1,5 @@
 # Basic - Q/A
+---
 
 1. **What is a version control system? What is Git?**  
    - A version control system (VCS) tracks changes to files over time, enabling collaboration and version tracking.  
@@ -51,6 +52,7 @@
     - A pull request (PR) is a request to merge changes from one branch (usually feature branch) into another (like main). It's used for code review and collaboration.
 
 # Intermediate - Q/A
+---
 
 1. **How do you remove files from a Git repo?**  
    Use `git rm <file>` to remove files from the repo and staging area. If the file is already deleted locally, use `git rm --cached <file>` to untrack it without deleting it locally.
